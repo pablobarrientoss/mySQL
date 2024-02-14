@@ -1,0 +1,1 @@
+The class intro to MySQL taught me how to modify existing databases, read data from tables, and database normalization.
