@@ -1,0 +1,80 @@
+-------------------------------------------------------------------------------------------------------------------------------
+															      	
+	Intro to MySQL
+	Homework 5
+
+	Written by: Pablo Barrientos
+	Date: 10/22/2023
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+	a: Add a new column called Founded of type date to the TEAMS table after the TEAMNO.
+
+	query:	ALTER TABLE TEAMS ADD FOUNDED DATE AFTER TEAMNO;
+
+	results:
+
+	TEAMNO		int		NO	PRI
+	FOUNDED		date		YES	
+	PLAYERNO	int		NO	
+	DIVISION	char(6)		NO	
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+	b: Add a new column called Paid of type char (1) to the PENALTIES table.
+
+	query:	ALTER TABLE PENALTIES ADD PAID CHAR(1);
+
+	results:
+
+	PAYMENTNO	int		NO	PRI
+	PLAYERNO	int		NO	
+	PAYMENT_DATE	date		NO	
+	PENALTY_AMOUNT	decimal(7,2)	YES	
+	PAID		char(1)		YES	
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+	c: In the PENALTIES table, change the column name AMOUNT to PENALTY_AMOUNT.
+
+	query:	ALTER TABLE PENALTIES CHANGE AMOUNT PENALTY_AMOUNT DECIMAL(7,2);
+
+	results: 
+
+	PAYMENTNO	int		NO	PRI
+	PLAYERNO	int		NO	
+	PAYMENT_DATE	date		NO	
+	PENALTY_AMOUNT	decimal(7,2)	YES	
+	PAID		char(1)		YES	
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+	d: Add a new column called Date of type date to the MATCHES table.
+
+	query: ALTER TABLE MATCHES ADD Date DATE;
+
+	results:
+
+	MATCH			int	NO	PRI	
+	TEAMNO			int	NO	
+	PLAYERNO		int	NO		
+	WON		small	int	NO		
+	LOST		small	int	NO		
+	Date			date	YES		
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+	e: In the MATCHES table, change the column name MATCHNO to MATCH. MATCH is a keyword but this can be done.
+
+	query: ALTER TABLE `MATCHES` CHANGE `MATCHNO` `MATCH` INT;
+
+	results:
+
+	MATCH			int	NO	PRI	
+	TEAMNO			int	NO		
+	PLAYERNO		int	NO		
+	WON		small	int	NO		
+	LOST		small	int	NO		
+	Date			date	YES		
+
+--------------------------------------------------------------------------------------------------------------------------------

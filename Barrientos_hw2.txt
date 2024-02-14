@@ -1,0 +1,81 @@
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	Intro to MySQL
+	Homework 2
+	Pablo Barrientos
+	09/17/2023
+
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	A. Get the numbers of the teams of which the player with the name Parmenter and initial R is a member; in this example, we assume that 
+	no two players have the same name and initials.
+
+	Script:
+	SELECT teamno, name, initials from player JOIN teams on players.playerno=teams.playerno WHERE name="Parameter" and initials="R";
+
+	RESULT:
+
+	teamno		name		initials
+	1		Parameter	R
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	B. For each penalty, find the payment number, the amount, and the number and name of the player who incurred it.
+
+	Script:
+	SELECT paymentno, amount, p.playerno, name FROM penalties pe
+	JOIN players p ON pe.playerno=p.playerno;
+
+	RESULT:
+	paymentno	amount		playerno	name
+	1		100.00		6		Parmenter
+	2		75.00		44		Baker
+	3		100.00		27		Collins
+	4		50.00		104		Noorman
+	5		25.00		44		Baker
+	6		25.00		8		Newcastle
+	7		30.00		44		Baker
+	8		75.00		27		Collins
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	C. For ALL players, get the player number and a list of the numbers of teams for which they have ever played. 
+	Some players may not have played for teams in the database. Hint a JOIN of some kind is needed.
+
+	Script:
+	SELECT playerno, teamno FROM players LEFT JOIN teams USING (playerno);
+
+	RESULT:
+	playerno	teamno
+	2	
+	6		1
+	7	
+	8	
+	27		2
+	28	
+	39	
+	44	
+	57	
+	83	
+	95	
+	100	
+	104	
+	112	
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	D. Get the number of each player who won at least one match. A win from matches is more wins than losses.
+
+	Script:
+	SELECT playerno FROM tennis.matches WHERE won>lost;
+
+	RESULT:
+	playerno
+	6
+	6
+	44
+	57
+	27
+	104
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	E. Get the payment numbers of the penalties incurred by players who were born after 1965.
+	
+	Script: SELECT paymentno FROM players p, penalties pe WHERE p.playerno=pe.playerno AND year(birth_date)>=1965;
+	
+	RESULT:
+	paymentno
+	4
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	
